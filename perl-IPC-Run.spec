@@ -4,7 +4,7 @@
 #
 Name     : perl-IPC-Run
 Version  : 0.94
-Release  : 6
+Release  : 7
 URL      : http://search.cpan.org/CPAN/authors/id/T/TO/TODDR/IPC-Run-0.94.tar.gz
 Source0  : http://search.cpan.org/CPAN/authors/id/T/TO/TODDR/IPC-Run-0.94.tar.gz
 Summary  : 'system() and background procs w/ piping, redirs, ptys (Unix, Win32)'
