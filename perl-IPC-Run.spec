@@ -4,7 +4,7 @@
 #
 Name     : perl-IPC-Run
 Version  : 0.94
-Release  : 7
+Release  : 8
 URL      : http://search.cpan.org/CPAN/authors/id/T/TO/TODDR/IPC-Run-0.94.tar.gz
 Source0  : http://search.cpan.org/CPAN/authors/id/T/TO/TODDR/IPC-Run-0.94.tar.gz
 Summary  : 'system() and background procs w/ piping, redirs, ptys (Unix, Win32)'
@@ -40,7 +40,7 @@ fi
 %check
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
-export no_proxy=intel.com,localhost
+export no_proxy=localhost
 make TEST_VERBOSE=1 test
 
 %install
@@ -57,13 +57,13 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files
 %defattr(-,root,root,-)
-/usr/lib/perl5/site_perl/5.22.0/IPC/Run.pm
-/usr/lib/perl5/site_perl/5.22.0/IPC/Run/Debug.pm
-/usr/lib/perl5/site_perl/5.22.0/IPC/Run/IO.pm
-/usr/lib/perl5/site_perl/5.22.0/IPC/Run/Timer.pm
-/usr/lib/perl5/site_perl/5.22.0/IPC/Run/Win32Helper.pm
-/usr/lib/perl5/site_perl/5.22.0/IPC/Run/Win32IO.pm
-/usr/lib/perl5/site_perl/5.22.0/IPC/Run/Win32Pump.pm
+/usr/lib/perl5/site_perl/5.24.0/IPC/Run.pm
+/usr/lib/perl5/site_perl/5.24.0/IPC/Run/Debug.pm
+/usr/lib/perl5/site_perl/5.24.0/IPC/Run/IO.pm
+/usr/lib/perl5/site_perl/5.24.0/IPC/Run/Timer.pm
+/usr/lib/perl5/site_perl/5.24.0/IPC/Run/Win32Helper.pm
+/usr/lib/perl5/site_perl/5.24.0/IPC/Run/Win32IO.pm
+/usr/lib/perl5/site_perl/5.24.0/IPC/Run/Win32Pump.pm
 
 %files doc
 %defattr(-,root,root,-)
