@@ -4,7 +4,7 @@
 #
 Name     : perl-IPC-Run
 Version  : 0.96
-Release  : 13
+Release  : 14
 URL      : http://search.cpan.org/CPAN/authors/id/T/TO/TODDR/IPC-Run-0.96.tar.gz
 Source0  : http://search.cpan.org/CPAN/authors/id/T/TO/TODDR/IPC-Run-0.96.tar.gz
 Summary  : 'system() and background procs w/ piping, redirs, ptys (Unix, Win32)'
@@ -62,13 +62,13 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files
 %defattr(-,root,root,-)
-/usr/lib/perl5/site_perl/5.24.0/IPC/Run.pm
-/usr/lib/perl5/site_perl/5.24.0/IPC/Run/Debug.pm
-/usr/lib/perl5/site_perl/5.24.0/IPC/Run/IO.pm
-/usr/lib/perl5/site_perl/5.24.0/IPC/Run/Timer.pm
-/usr/lib/perl5/site_perl/5.24.0/IPC/Run/Win32Helper.pm
-/usr/lib/perl5/site_perl/5.24.0/IPC/Run/Win32IO.pm
-/usr/lib/perl5/site_perl/5.24.0/IPC/Run/Win32Pump.pm
+/usr/lib/perl5/site_perl/5.26.0/IPC/Run.pm
+/usr/lib/perl5/site_perl/5.26.0/IPC/Run/Debug.pm
+/usr/lib/perl5/site_perl/5.26.0/IPC/Run/IO.pm
+/usr/lib/perl5/site_perl/5.26.0/IPC/Run/Timer.pm
+/usr/lib/perl5/site_perl/5.26.0/IPC/Run/Win32Helper.pm
+/usr/lib/perl5/site_perl/5.26.0/IPC/Run/Win32IO.pm
+/usr/lib/perl5/site_perl/5.26.0/IPC/Run/Win32Pump.pm
 
 %files doc
 %defattr(-,root,root,-)
