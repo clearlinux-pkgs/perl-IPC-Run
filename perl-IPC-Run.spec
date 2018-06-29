@@ -4,25 +4,34 @@
 #
 Name     : perl-IPC-Run
 Version  : 20180523.0
-Release  : 20
-URL      : http://search.cpan.org/CPAN/authors/id/T/TO/TODDR/IPC-Run-20180523.0.tar.gz
-Source0  : http://search.cpan.org/CPAN/authors/id/T/TO/TODDR/IPC-Run-20180523.0.tar.gz
+Release  : 21
+URL      : https://cpan.metacpan.org/authors/id/T/TO/TODDR/IPC-Run-20180523.0.tar.gz
+Source0  : https://cpan.metacpan.org/authors/id/T/TO/TODDR/IPC-Run-20180523.0.tar.gz
 Summary  : 'system() and background procs w/ piping, redirs, ptys (Unix, Win32)'
 Group    : Development/Tools
 License  : Artistic-1.0-Perl GPL-2.0
-Requires: perl-IPC-Run-doc
+Requires: perl-IPC-Run-license
+Requires: perl-IPC-Run-man
 
 %description
 NAME
 IPC::Run - system() and background procs w/ piping, redirs, ptys (Unix,
 Win32)
 
-%package doc
-Summary: doc components for the perl-IPC-Run package.
-Group: Documentation
+%package license
+Summary: license components for the perl-IPC-Run package.
+Group: Default
 
-%description doc
-doc components for the perl-IPC-Run package.
+%description license
+license components for the perl-IPC-Run package.
+
+
+%package man
+Summary: man components for the perl-IPC-Run package.
+Group: Default
+
+%description man
+man components for the perl-IPC-Run package.
 
 
 %prep
@@ -50,6 +59,8 @@ make TEST_VERBOSE=1 test
 
 %install
 rm -rf %{buildroot}
+mkdir -p %{buildroot}/usr/share/doc/perl-IPC-Run
+cp LICENSE %{buildroot}/usr/share/doc/perl-IPC-Run/LICENSE
 if test -f Makefile.PL; then
 make pure_install PERL_INSTALL_ROOT=%{buildroot}
 else
@@ -70,6 +81,16 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 /usr/lib/perl5/site_perl/5.26.1/IPC/Run/Win32IO.pm
 /usr/lib/perl5/site_perl/5.26.1/IPC/Run/Win32Pump.pm
 
-%files doc
-%defattr(0644,root,root,0755)
-%doc /usr/share/man/man3/*
+%files license
+%defattr(-,root,root,-)
+/usr/share/doc/perl-IPC-Run/LICENSE
+
+%files man
+%defattr(-,root,root,-)
+/usr/share/man/man3/IPC::Run.3
+/usr/share/man/man3/IPC::Run::Debug.3
+/usr/share/man/man3/IPC::Run::IO.3
+/usr/share/man/man3/IPC::Run::Timer.3
+/usr/share/man/man3/IPC::Run::Win32Helper.3
+/usr/share/man/man3/IPC::Run::Win32IO.3
+/usr/share/man/man3/IPC::Run::Win32Pump.3
