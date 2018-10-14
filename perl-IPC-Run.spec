@@ -4,19 +4,28 @@
 #
 Name     : perl-IPC-Run
 Version  : 20180523.0
-Release  : 21
+Release  : 22
 URL      : https://cpan.metacpan.org/authors/id/T/TO/TODDR/IPC-Run-20180523.0.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/T/TO/TODDR/IPC-Run-20180523.0.tar.gz
 Summary  : 'system() and background procs w/ piping, redirs, ptys (Unix, Win32)'
 Group    : Development/Tools
 License  : Artistic-1.0-Perl GPL-2.0
-Requires: perl-IPC-Run-license
-Requires: perl-IPC-Run-man
+Requires: perl-IPC-Run-license = %{version}-%{release}
+BuildRequires : buildreq-cpan
 
 %description
 NAME
 IPC::Run - system() and background procs w/ piping, redirs, ptys (Unix,
 Win32)
+
+%package dev
+Summary: dev components for the perl-IPC-Run package.
+Group: Development
+Provides: perl-IPC-Run-devel = %{version}-%{release}
+
+%description dev
+dev components for the perl-IPC-Run package.
+
 
 %package license
 Summary: license components for the perl-IPC-Run package.
@@ -24,14 +33,6 @@ Group: Default
 
 %description license
 license components for the perl-IPC-Run package.
-
-
-%package man
-Summary: man components for the perl-IPC-Run package.
-Group: Default
-
-%description man
-man components for the perl-IPC-Run package.
 
 
 %prep
@@ -59,12 +60,12 @@ make TEST_VERBOSE=1 test
 
 %install
 rm -rf %{buildroot}
-mkdir -p %{buildroot}/usr/share/doc/perl-IPC-Run
-cp LICENSE %{buildroot}/usr/share/doc/perl-IPC-Run/LICENSE
+mkdir -p %{buildroot}/usr/share/package-licenses/perl-IPC-Run
+cp LICENSE %{buildroot}/usr/share/package-licenses/perl-IPC-Run/LICENSE
 if test -f Makefile.PL; then
-make pure_install PERL_INSTALL_ROOT=%{buildroot}
+make pure_install PERL_INSTALL_ROOT=%{buildroot} INSTALLDIRS=vendor
 else
-./Build install --installdirs=site --destdir=%{buildroot}
+./Build install --installdirs=vendor --destdir=%{buildroot}
 fi
 find %{buildroot} -type f -name .packlist -exec rm -f {} ';'
 find %{buildroot} -depth -type d -exec rmdir {} 2>/dev/null ';'
@@ -73,19 +74,15 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files
 %defattr(-,root,root,-)
-/usr/lib/perl5/site_perl/5.26.1/IPC/Run.pm
-/usr/lib/perl5/site_perl/5.26.1/IPC/Run/Debug.pm
-/usr/lib/perl5/site_perl/5.26.1/IPC/Run/IO.pm
-/usr/lib/perl5/site_perl/5.26.1/IPC/Run/Timer.pm
-/usr/lib/perl5/site_perl/5.26.1/IPC/Run/Win32Helper.pm
-/usr/lib/perl5/site_perl/5.26.1/IPC/Run/Win32IO.pm
-/usr/lib/perl5/site_perl/5.26.1/IPC/Run/Win32Pump.pm
+/usr/lib/perl5/vendor_perl/5.26.1/IPC/Run.pm
+/usr/lib/perl5/vendor_perl/5.26.1/IPC/Run/Debug.pm
+/usr/lib/perl5/vendor_perl/5.26.1/IPC/Run/IO.pm
+/usr/lib/perl5/vendor_perl/5.26.1/IPC/Run/Timer.pm
+/usr/lib/perl5/vendor_perl/5.26.1/IPC/Run/Win32Helper.pm
+/usr/lib/perl5/vendor_perl/5.26.1/IPC/Run/Win32IO.pm
+/usr/lib/perl5/vendor_perl/5.26.1/IPC/Run/Win32Pump.pm
 
-%files license
-%defattr(-,root,root,-)
-/usr/share/doc/perl-IPC-Run/LICENSE
-
-%files man
+%files dev
 %defattr(-,root,root,-)
 /usr/share/man/man3/IPC::Run.3
 /usr/share/man/man3/IPC::Run::Debug.3
@@ -94,3 +91,7 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 /usr/share/man/man3/IPC::Run::Win32Helper.3
 /usr/share/man/man3/IPC::Run::Win32IO.3
 /usr/share/man/man3/IPC::Run::Win32Pump.3
+
+%files license
+%defattr(0644,root,root,0755)
+/usr/share/package-licenses/perl-IPC-Run/LICENSE
