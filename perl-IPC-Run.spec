@@ -4,10 +4,10 @@
 #
 Name     : perl-IPC-Run
 Version  : 20180523.0
-Release  : 30
+Release  : 31
 URL      : https://cpan.metacpan.org/authors/id/T/TO/TODDR/IPC-Run-20180523.0.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/T/TO/TODDR/IPC-Run-20180523.0.tar.gz
-Summary  : 'system() and background procs w/ piping, redirs, ptys (Unix, Win32)'
+Summary  : IPC::Run - system() and background procs w/ piping, redirs, ptys
 Group    : Development/Tools
 License  : Artistic-1.0-Perl GPL-2.0
 Requires: perl-IPC-Run-license = %{version}-%{release}
@@ -22,6 +22,7 @@ Win32)
 Summary: dev components for the perl-IPC-Run package.
 Group: Development
 Provides: perl-IPC-Run-devel = %{version}-%{release}
+Requires: perl-IPC-Run = %{version}-%{release}
 
 %description dev
 dev components for the perl-IPC-Run package.
