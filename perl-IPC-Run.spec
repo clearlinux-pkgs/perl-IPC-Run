@@ -74,13 +74,13 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.28.1/IPC/Run.pm
-/usr/lib/perl5/vendor_perl/5.28.1/IPC/Run/Debug.pm
-/usr/lib/perl5/vendor_perl/5.28.1/IPC/Run/IO.pm
-/usr/lib/perl5/vendor_perl/5.28.1/IPC/Run/Timer.pm
-/usr/lib/perl5/vendor_perl/5.28.1/IPC/Run/Win32Helper.pm
-/usr/lib/perl5/vendor_perl/5.28.1/IPC/Run/Win32IO.pm
-/usr/lib/perl5/vendor_perl/5.28.1/IPC/Run/Win32Pump.pm
+/usr/lib/perl5/vendor_perl/5.28.2/IPC/Run.pm
+/usr/lib/perl5/vendor_perl/5.28.2/IPC/Run/Debug.pm
+/usr/lib/perl5/vendor_perl/5.28.2/IPC/Run/IO.pm
+/usr/lib/perl5/vendor_perl/5.28.2/IPC/Run/Timer.pm
+/usr/lib/perl5/vendor_perl/5.28.2/IPC/Run/Win32Helper.pm
+/usr/lib/perl5/vendor_perl/5.28.2/IPC/Run/Win32IO.pm
+/usr/lib/perl5/vendor_perl/5.28.2/IPC/Run/Win32Pump.pm
 
 %files dev
 %defattr(-,root,root,-)
