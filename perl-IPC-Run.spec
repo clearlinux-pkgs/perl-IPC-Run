@@ -4,13 +4,14 @@
 #
 Name     : perl-IPC-Run
 Version  : 20180523.0
-Release  : 31
+Release  : 32
 URL      : https://cpan.metacpan.org/authors/id/T/TO/TODDR/IPC-Run-20180523.0.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/T/TO/TODDR/IPC-Run-20180523.0.tar.gz
-Summary  : IPC::Run - system() and background procs w/ piping, redirs, ptys
+Summary  : 'system() and background procs w/ piping, redirs, ptys (Unix, Win32)'
 Group    : Development/Tools
 License  : Artistic-1.0-Perl GPL-2.0
 Requires: perl-IPC-Run-license = %{version}-%{release}
+Requires: perl-IPC-Run-perl = %{version}-%{release}
 BuildRequires : buildreq-cpan
 
 %description
@@ -36,14 +37,24 @@ Group: Default
 license components for the perl-IPC-Run package.
 
 
+%package perl
+Summary: perl components for the perl-IPC-Run package.
+Group: Default
+Requires: perl-IPC-Run = %{version}-%{release}
+
+%description perl
+perl components for the perl-IPC-Run package.
+
+
 %prep
 %setup -q -n IPC-Run-20180523.0
+cd %{_builddir}/IPC-Run-20180523.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-export LANG=C
+export LANG=C.UTF-8
 if test -f Makefile.PL; then
 %{__perl} Makefile.PL
 make  %{?_smp_mflags}
@@ -53,7 +64,7 @@ else
 fi
 
 %check
-export LANG=C
+export LANG=C.UTF-8
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
@@ -62,7 +73,7 @@ make TEST_VERBOSE=1 test
 %install
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/perl-IPC-Run
-cp LICENSE %{buildroot}/usr/share/package-licenses/perl-IPC-Run/LICENSE
+cp %{_builddir}/IPC-Run-20180523.0/LICENSE %{buildroot}/usr/share/package-licenses/perl-IPC-Run/10b18134d80c6f0904ad1c836170dedb386d3533
 if test -f Makefile.PL; then
 make pure_install PERL_INSTALL_ROOT=%{buildroot} INSTALLDIRS=vendor
 else
@@ -75,13 +86,6 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.28.2/IPC/Run.pm
-/usr/lib/perl5/vendor_perl/5.28.2/IPC/Run/Debug.pm
-/usr/lib/perl5/vendor_perl/5.28.2/IPC/Run/IO.pm
-/usr/lib/perl5/vendor_perl/5.28.2/IPC/Run/Timer.pm
-/usr/lib/perl5/vendor_perl/5.28.2/IPC/Run/Win32Helper.pm
-/usr/lib/perl5/vendor_perl/5.28.2/IPC/Run/Win32IO.pm
-/usr/lib/perl5/vendor_perl/5.28.2/IPC/Run/Win32Pump.pm
 
 %files dev
 %defattr(-,root,root,-)
@@ -95,4 +99,14 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files license
 %defattr(0644,root,root,0755)
-/usr/share/package-licenses/perl-IPC-Run/LICENSE
+/usr/share/package-licenses/perl-IPC-Run/10b18134d80c6f0904ad1c836170dedb386d3533
+
+%files perl
+%defattr(-,root,root,-)
+/usr/lib/perl5/vendor_perl/5.30.1/IPC/Run.pm
+/usr/lib/perl5/vendor_perl/5.30.1/IPC/Run/Debug.pm
+/usr/lib/perl5/vendor_perl/5.30.1/IPC/Run/IO.pm
+/usr/lib/perl5/vendor_perl/5.30.1/IPC/Run/Timer.pm
+/usr/lib/perl5/vendor_perl/5.30.1/IPC/Run/Win32Helper.pm
+/usr/lib/perl5/vendor_perl/5.30.1/IPC/Run/Win32IO.pm
+/usr/lib/perl5/vendor_perl/5.30.1/IPC/Run/Win32Pump.pm
