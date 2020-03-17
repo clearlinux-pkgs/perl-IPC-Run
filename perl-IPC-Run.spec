@@ -4,7 +4,7 @@
 #
 Name     : perl-IPC-Run
 Version  : 20180523.0
-Release  : 32
+Release  : 33
 URL      : https://cpan.metacpan.org/authors/id/T/TO/TODDR/IPC-Run-20180523.0.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/T/TO/TODDR/IPC-Run-20180523.0.tar.gz
 Summary  : 'system() and background procs w/ piping, redirs, ptys (Unix, Win32)'
@@ -103,10 +103,10 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files perl
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.30.1/IPC/Run.pm
-/usr/lib/perl5/vendor_perl/5.30.1/IPC/Run/Debug.pm
-/usr/lib/perl5/vendor_perl/5.30.1/IPC/Run/IO.pm
-/usr/lib/perl5/vendor_perl/5.30.1/IPC/Run/Timer.pm
-/usr/lib/perl5/vendor_perl/5.30.1/IPC/Run/Win32Helper.pm
-/usr/lib/perl5/vendor_perl/5.30.1/IPC/Run/Win32IO.pm
-/usr/lib/perl5/vendor_perl/5.30.1/IPC/Run/Win32Pump.pm
+/usr/lib/perl5/vendor_perl/5.30.2/IPC/Run.pm
+/usr/lib/perl5/vendor_perl/5.30.2/IPC/Run/Debug.pm
+/usr/lib/perl5/vendor_perl/5.30.2/IPC/Run/IO.pm
+/usr/lib/perl5/vendor_perl/5.30.2/IPC/Run/Timer.pm
+/usr/lib/perl5/vendor_perl/5.30.2/IPC/Run/Win32Helper.pm
+/usr/lib/perl5/vendor_perl/5.30.2/IPC/Run/Win32IO.pm
+/usr/lib/perl5/vendor_perl/5.30.2/IPC/Run/Win32Pump.pm
