@@ -4,7 +4,7 @@
 #
 Name     : perl-IPC-Run
 Version  : 20220807.0
-Release  : 44
+Release  : 45
 URL      : https://cpan.metacpan.org/authors/id/T/TO/TODDR/IPC-Run-20220807.0.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/T/TO/TODDR/IPC-Run-20220807.0.tar.gz
 Summary  : 'system() and background procs w/ piping, redirs, ptys (Unix, Win32)'
