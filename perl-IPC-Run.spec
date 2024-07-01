@@ -5,7 +5,7 @@
 #
 Name     : perl-IPC-Run
 Version  : 20231003.0
-Release  : 48
+Release  : 49
 URL      : https://cpan.metacpan.org/authors/id/T/TO/TODDR/IPC-Run-20231003.0.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/T/TO/TODDR/IPC-Run-20231003.0.tar.gz
 Summary  : 'system() and background procs w/ piping, redirs, ptys (Unix, Win32)'
